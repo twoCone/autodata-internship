@@ -1,0 +1,98 @@
+@mixin font($font_name, $file_name, $weight, $style) {
+	@font-face {
+		font-family: $font_name;
+		font-display: swap;
+		src: url("../fonts/#{$file_name}.woff") format("woff"), url("../fonts/#{$file_name}.woff2") format("woff2");
+		font-weight: #{$weight};
+		font-style: #{$style};
+	}
+}
+
+@import "fonts";
+
+$fontFamily: "OpenSans";
+
+body {
+	font-family: $fontFamily;
+	background-color: #dedede;
+	color: #333;
+	padding: 20px 0 28px 0;
+	margin: 0;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+.app-title {
+	text-align: center;
+	font-weight: normal;
+	font-size: 2.6rem;
+}
+
+
+.car {
+	position: relative;
+    max-width: 70%;
+    padding: 20px;
+    margin: 30px auto;
+    background-color: #fff;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+
+    // .animal__image
+
+    &__image {
+        float: left;
+        width: 40%;
+        margin-right: 15px;
+    }
+
+	&__modificationstitle{
+		margin: 0px 0px;
+	}
+
+    // .animal__name
+
+    &__name {
+        font-size: 2rem;
+        font-weight: normal;
+        margin: 0 0 1rem 0;
+    }
+
+    // .animal__species
+
+    &__modification {
+        margin: 0;
+        padding: 0;
+        position: relative;
+        left: 17px;
+        font-size: 0.85rem;
+        line-height: 1.5;
+    }
+}
+.button {
+	// .button__edit
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	&__edit {
+		
+	}
+
+	// .button__delete
+
+	&__delete {
+	}
+}
+
+
+.footer{
+    font-size: 0.7rem;
+	color: #888;
+	text-align: center;
+	margin: 0;
+}
+
+.editable{ background:#EAEAEA}
