@@ -1,11 +1,11 @@
 # autodata-internship task 1 
 To open a project via gulp use following commands in terminal:<br />
-npm install - to install all packages.<br />
-gulp - to run gulp.
+<em>npm install</em> - <cite>to install all packages.</cite><br />
+<em>gulp</em> -<cite> to run gulp.</cite>
 
 __
 
-Result of gulp(site) is located in "dist" folder.<br />
+Result of gulp(<b>site</b>) is located in "dist" folder.<br />
 You can run it on your PC/laptop via local browser
 
 __
