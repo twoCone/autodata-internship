@@ -27,13 +27,14 @@ img {
 
 .car {
   position: relative;
-  max-width: 70%;
+  max-width: 60%;
   padding: 20px;
   margin: 30px auto;
   background-color: #fff;
   -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
           box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
   overflow: hidden;
+  padding: calc(20px + 30 * ((100vw - 320px) / 1600));
 }
 
 .car__image {
@@ -44,12 +45,15 @@ img {
 
 .car__modificationstitle {
   margin: 0px 0px;
+  font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1600 - 320)));
+  line-height: 150%;
 }
 
 .car__name {
-  font-size: 2rem;
-  font-weight: normal;
-  margin: 0 0 1rem 0;
+  margin: 0px 0px;
+  font-weight: bold;
+  font-size: calc(20px + (30 - 20) * ((100vw - 320px) / (1600 - 320)));
+  line-height: 130%;
 }
 
 .car__modification {
@@ -57,23 +61,112 @@ img {
   padding: 0;
   position: relative;
   left: 17px;
-  font-size: 0.85rem;
   line-height: 1.5;
+  font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1600 - 320)));
+  line-height: 150%;
 }
 
 .button {
+  font-family: "OpenSans";
   position: absolute;
-  top: 20px;
+  top: 0px;
   right: 20px;
+  padding: calc(20px + 30 * ((100vw - 320px) / 1600));
 }
 
-.footer {
-  font-size: 0.7rem;
-  color: #888;
-  text-align: center;
-  margin: 0;
+.button__edit {
+  text-transform: uppercase;
+  width: 70px;
+}
+
+.button__delete {
+  text-transform: uppercase;
+  width: 70px;
 }
 
 .editable {
-  background: #EAEAEA;
+  background: #eaeaea;
+}
+
+@-webkit-keyframes button {
+  0% {
+    border: 1px solid #333;
+    background-color: white;
+    color: #333;
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  50% {
+    border: 1px solid #333;
+    background-color: white;
+    color: #333;
+    border-color: white;
+    -ms-transform: rotate(5deg);
+    -webkit-transform: rotate(5deg);
+    transform: rotate(5deg);
+  }
+
+  90% {
+    border: 1px solid #333;
+    background-color: white;
+    color: #333;
+    -ms-transform: rotate(-10deg);
+    -webkit-transform: rotate(-10deg);
+    transform: rotate(-10deg);
+  }
+
+  100% {
+    border: 1px solid #333;
+    background-color: white;
+    color: #333;
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes button {
+  0% {
+    border: 1px solid #333;
+    background-color: white;
+    color: #333;
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  50% {
+    border: 1px solid #333;
+    background-color: white;
+    color: #333;
+    border-color: white;
+    -ms-transform: rotate(5deg);
+    -webkit-transform: rotate(5deg);
+    transform: rotate(5deg);
+  }
+
+  90% {
+    border: 1px solid #333;
+    background-color: white;
+    color: #333;
+    -ms-transform: rotate(-10deg);
+    -webkit-transform: rotate(-10deg);
+    transform: rotate(-10deg);
+  }
+
+  100% {
+    border: 1px solid #333;
+    background-color: white;
+    color: #333;
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+}
+
+button:hover {
+  -webkit-animation: 0.9s button;
+          animation: 0.9s button;
 }

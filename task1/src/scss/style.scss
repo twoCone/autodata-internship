@@ -8,6 +8,29 @@
 	}
 }
 
+$maxWidth: 1920;
+$maxWidthContainer: 1170;
+
+@mixin adaptiv-value($property, $startSize, $minSize, $type) {
+	$addSize: $startSize - $minSize;
+	@if $type==1 {
+		//Только если меньше контейнера
+		#{$property}: $startSize + px;
+		@media (max-width: #{$maxWidthContainer + px}) {
+			#{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidthContainer - 320}));
+		}
+	} @else if $type==2 {
+		//Только если больше контейнера
+		#{$property}: $startSize + px;
+		@media (min-width: #{$maxWidthContainer + px}) {
+			#{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}));
+		}
+	} @else {
+		//Всегда
+		#{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}));
+	}
+}
+
 @import "fonts";
 
 $fontFamily: "OpenSans";
@@ -31,68 +54,122 @@ img {
 	font-size: 2.6rem;
 }
 
-
 .car {
 	position: relative;
-    max-width: 70%;
-    padding: 20px;
-    margin: 30px auto;
-    background-color: #fff;
-    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
+	max-width: 60%;
+	padding: 20px;
+	margin: 30px auto;
+	background-color: #fff;
+	box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+	overflow: hidden;
+	@include adaptiv-value("padding", 50, 20, 0);
 
-    // .animal__image
-
-    &__image {
-        float: left;
-        width: 40%;
-        margin-right: 15px;
-    }
-
-	&__modificationstitle{
-		margin: 0px 0px;
+	
+	&__image {
+		float: left;
+		width: 40%;
+		margin-right: 15px;
 	}
 
-    // .animal__name
+	&__modificationstitle {
+		margin: 0px 0px;
+		font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1600 - 320)));
+		line-height: 150%;
+	}
 
-    &__name {
-        font-size: 2rem;
-        font-weight: normal;
-        margin: 0 0 1rem 0;
-    }
+	
+	&__name {
+		margin: 0px 0px;
+		font-weight: bold;
+		font-size: calc(20px + (30 - 20) * ((100vw - 320px) / (1600 - 320)));
+		line-height: 130%;
+	}
 
-    // .animal__species
-
-    &__modification {
-        margin: 0;
-        padding: 0;
-        position: relative;
-        left: 17px;
-        font-size: 0.85rem;
-        line-height: 1.5;
-    }
+	
+	&__modification {
+		margin: 0;
+		padding: 0;
+		position: relative;
+		left: 17px;
+		line-height: 1.5;
+		font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1600 - 320)));
+		line-height: 150%;
+	}
 }
 .button {
-	// .button__edit
+
+	font-family: $fontFamily;
 	position: absolute;
-	top: 20px;
+	top: 0px;
 	right: 20px;
+	@include adaptiv-value("padding", 50, 20, 0);
+	
+
 	&__edit {
-		
+		text-transform: uppercase;
+		width: 70px;
 	}
 
-	// .button__delete
 
 	&__delete {
+		text-transform: uppercase;
+		width: 70px;
+
 	}
 }
 
-
-.footer{
-    font-size: 0.7rem;
-	color: #888;
-	text-align: center;
-	margin: 0;
+.editable {
+	background: #eaeaea;
 }
 
-.editable{ background:#EAEAEA}
+@keyframes button {
+	0% {
+		border: 1px solid #333;
+		background-color: white;
+		color: #333;
+		-moz-transform: rotate(0deg);
+		-ms-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+
+		transform: rotate(0deg);
+	}
+	50% {
+		border: 1px solid #333;
+		background-color: white;
+		color: #333;
+		border-color: white;
+		-moz-transform: rotate(5deg);
+		-ms-transform: rotate(5deg);
+		-o-transform: rotate(5deg);
+		-webkit-transform: rotate(5deg);
+
+		transform: rotate(5deg);
+	}
+	90% {
+		border: 1px solid #333;
+		background-color: white;
+		color: #333;
+		-moz-transform: rotate(-10deg);
+		-ms-transform: rotate(-10deg);
+		-o-transform: rotate(-10deg);
+		-webkit-transform: rotate(-10deg);
+
+		transform: rotate(-10deg);
+	}
+	100% {
+		border: 1px solid #333;
+		background-color: white;
+		color: #333;
+		-moz-transform: rotate(0deg);
+		-ms-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+
+		transform: rotate(0deg);
+	}
+}
+
+button:hover {
+	animation: 0.9s button;
+}
