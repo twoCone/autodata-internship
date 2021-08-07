@@ -76,12 +76,14 @@ img {
 
 .button__edit {
   text-transform: uppercase;
-  width: 70px;
+  width: calc(35px + 35 * ((100vw - 320px) / 1600));
+  font-size: calc(10px + (16 - 14) * ((100vw - 320px) / (1600 - 320)));
 }
 
 .button__delete {
   text-transform: uppercase;
-  width: 70px;
+  width: calc(50px + 20 * ((100vw - 320px) / 1600));
+  font-size: calc(10px + (16 - 14) * ((100vw - 320px) / (1600 - 320)));
 }
 
 .editable {

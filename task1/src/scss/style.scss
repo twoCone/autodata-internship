@@ -104,16 +104,19 @@ img {
 	right: 20px;
 	@include adaptiv-value("padding", 50, 20, 0);
 	
+	
 
 	&__edit {
 		text-transform: uppercase;
-		width: 70px;
+		@include adaptiv-value("width", 70, 35, 0);
+		font-size: calc(10px + (16 - 14) * ((100vw - 320px) / (1600 - 320)));
 	}
 
 
 	&__delete {
 		text-transform: uppercase;
-		width: 70px;
+		@include adaptiv-value("width", 70, 50, 0);
+		font-size: calc(10px + (16 - 14) * ((100vw - 320px) / (1600 - 320)));
 
 	}
 }
